@@ -1,0 +1,52 @@
+<%= form_for @vote, :html => { :class => "form-horizontal vote" } do |f| %>
+
+    <% if @vote.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @vote.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :vote_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vote_time, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vote[:vote_time]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :validity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :validity, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vote[:validity]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :candidate_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :candidate_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vote[:candidate_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :campaign_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :campaign_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@vote[:campaign_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            votes_path, :class => 'btn btn-default' %>
+
+<% end %>

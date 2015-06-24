@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vote_time: 1
+  validity: MyString
+  conn: MyString
+  msisdn: MyString
+  guid: MyString
+  shortcode: 1
+
+two:
+  vote_time: 1
+  validity: MyString
+  conn: MyString
+  msisdn: MyString
+  guid: MyString
+  shortcode: 1
