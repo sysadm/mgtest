@@ -1,6 +1,6 @@
 class Candidate < ActiveRecord::Base
-  has_many :campaign, through: :elections
-  has_many :elections
+  has_many :campaigns, through: :elections
+  has_many :elections, dependent: :destroy
 
 
   def votes_counted_in_campaign(campaign)

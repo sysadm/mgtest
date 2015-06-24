@@ -2,14 +2,17 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<div style="text-align: center">
+  <%= paginate @votes %>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:vote_time) %></th>
       <th><%= model_class.human_attribute_name(:validity) %></th>
-      <th><%= model_class.human_attribute_name(:candidate_id) %></th>
-      <th><%= model_class.human_attribute_name(:campaign_id) %></th>
+      <th><%= t(:campaign) %></th>
+      <th><%= t(:candidate) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -19,8 +22,8 @@
         <td><%= link_to vote.id, vote_path(vote) %></td>
         <td><%= vote.vote_time %></td>
         <td><%= vote.validity %></td>
-        <td><%= vote.candidate_id %></td>
-        <td><%= vote.campaign_id %></td>
+        <td><%= vote.election.campaign.name %></td>
+        <td><%= vote.election.candidate.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_vote_path(vote), :class => 'btn btn-default btn-xs' %>

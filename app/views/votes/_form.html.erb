@@ -29,21 +29,6 @@
     </div>
     <%= error_span(@vote[:validity]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :candidate_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :candidate_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@vote[:candidate_id]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :campaign_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :campaign_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@vote[:campaign_id]) %>
-  </div>
-
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
